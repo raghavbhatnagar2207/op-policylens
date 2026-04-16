@@ -6,7 +6,8 @@ from flask import Blueprint, request, jsonify
 
 legacy_bp = Blueprint("legacy", __name__)
 
-DATASET_PATH = os.path.join(os.path.dirname(__file__), "..", "..", "pro-main", "backend", "data", "dataset.json")
+# Fallback to the dataset.csv in root, or an empty JSON structure if not available.
+DATASET_PATH = os.path.join(os.path.dirname(__file__), "..", "..", "dataset.csv")
 
 def load_dataset():
     try:
