@@ -1,0 +1,234 @@
+NitiVerse
+POLICYLENS AI
+SDG focused - SDG 1, SDG 10 and SDG 16
+Team Name - NitiVerse
+Team Leader - Rohan Diwakar
+Team Members - Ishan Gupta, Raghav Bhatnagar, Anshi
+Institution Name - Moradabad Institute of Technology, Moradabad 
+Team ID - HACK26107
+Why Important
+NitiVerse
+PROBLEM & BACKGROUND
+Problem 
+Right beneficiaries don’t get
+schemes
+People don’t understand eligibility
+No transparency in decisions
+Fraud & duplicate applications
+Why Important
+Deserving people miss benefits, increasing poverty
+& inequality
+Low transparency → loss of trust in government
+Funds get wasted due to fraud & inefficiency
+Slow processes delay critical support
+₹3.48 lakh crore leakage prevented → shows
+huge past inefficiency
+5.8+ crore fake beneficiaries removed
+₹43+ lakh crore welfare distributed → high
+scale risk
+Fraud & verification gaps still exist
+Real Stats
+A large share of benefits don’t reach intended
+beneficiaries
+India has 1000+ schemes, but awareness & access
+are low
+Leakage & fraud cause huge financial losses
+Manual systems = slow processing & poor
+scalability
+Real-World Impact & Statistics
+Main Goals of PolicyLens AI 
+NitiVerse
+ Aim to achieve
+How will our solution solve the
+problem?
+OBJECTIVES
+Ensure right beneficiaries receive schemes
+Reduce leakage, fraud & inefficiency
+Improve transparency in decision-making
+Enable data-driven governance
+Simplify eligibility checking for citizens
+Provide approval probability prediction
+Help authorities with real-time insights &
+anomaly detection
+Make the system faster, fairer & scalable
+NitiVerse
+Current Solutions & Limitations 
+Why is a new approach needed?
+EXISTING SOLUTIONS & GAPS
+Government portals 
+Manual verification systems
+Basic data dashboards
+Audit-based fraud detection
+Existing Solutions:
+Limitations:
+Need AI-driven decision support system
+Real-time fraud & anomaly detection
+Centralized and intelligent dashboard
+User-friendly platform for citizens
+Faster, transparent & data-driven governance
+NitiVerse
+Proposed Solution 
+PROPOSED SOLUTION OVERVIEW
+PolicyLens is an AI-powered platform that
+improves government scheme management.
+It analyzes data to detect fraud, leakage &
+irregularities.
+Provides a centralized dashboard for real-time
+monitoring.
+Uses automation to reduce manual work &
+delays.
+Tracks fund flow & beneficiary data in real-
+time.
+Provides data-driven insights for better
+decisions.
+Works as a single unified dashboard for
+schemes.
+NitiVerse
+Layer
+Tecnology used
+Frontend
+React.js, Tailwind CSS
+Backend
+Node.js, Express.js
+Database
+MongoDB
+AI/ML
+Python, Scikit-learn,Pandas
+APIs
+REST APIs
+Auth
+JWT (Json Web Token)
+TECHNICAL APPROACH & INNOVATION
+Methodology
+Technology Stack
+1.Collect data (schemes + beneficiaries)
+2.Clean & preprocess data
+3.Apply ML model to detect fraud
+patterns
+4.Store results in database
+5.Show insights on dashboard
+6.Provide alerts & reports to users
+NitiVerse
+FEASIBILITY & IMPLEMENTATION PLAN
+How will you build & test?
+Build:
+Frontend: React+Tailwind CSS
+Backend: Node.js+Express
+Database: MongoDB
+ML Model: Python 
+Test:
+Unit testing (API & modules)
+Sample government dataset
+testing
+Edge cases (fraud, duplicate
+entries)
+UI testing for user experience
+ Government open
+datasets
+ML libraries (Scikit-
+learn / Pandas)
+Authentication (JWT
+/ Firebase)
+Resources Required
+Hardware:
+Laptop (8GB RAM)
+Internet connection
+Software:
+VS Code
+Postman
+GitHub
+APIs & Tools:
+Expected Timeline
+will be implementiong MVP in
+3 days
+IMPACT & SUSTAINABILITY
+NitiVerse
+ Who will benefit?
+Simplified policy analysis for study and research
+Easy access to structured information
+ Citizens 
+Understand complex government policies in simple
+language
+Increased awareness of rights, schemes, and benefits
+Better decision-making in education, jobs, and
+applications
+Government & Policy Makers
+Improved policy reach and transparency
+Easier collection of public feedback
+More effective policy implementation
+Industry & Businesses
+Quick understanding of regulations and compliance
+Identification of opportunities (schemes, subsidies)
+Students & Researchers
+ Long-Term Impact & Scalability
+Can be expanded to multiple states and
+countries
+Supports multi-language integration
+Can include AI-based personalized policy
+recommendations
+Long-Term Impact
+Reduces the policy awareness gap
+Builds transparency and trust between
+citizens and government
+Creates a more informed and empowered
+society
+ Scalability
+BUDGET
+NitiVerse
+Development
+Student-built prototype → ₹0 (No development
+cost)
+Future scaling (professional team) → ₹30,000+
+(optional)
+Cloud & Hosting
+Free tier (Firebase / Vercel / Render) → ₹0
+Scalable hosting (future) → ₹500 – ₹1,000/month
+AI / ML
+Basic ML (open-source libraries) → ₹0
+Advanced AI APIs (optional) → ₹500 – ₹1,000
+Data Sources
+Government open datasets → FREE
+Tools & Software
+VS Code, GitHub, Figma → FREE
+Miscellaneous
+Internet & testing → ₹200 – ₹500
+ Prototype:- 
+₹0 – ₹1,000
+ Total Cost
+Scalable Deployment
+₹2,000 – ₹5,000 (initial) +
+₹500/month
+NitiVerse
+Summary & Why it should be selected
+Future Scope
+CONCLUSION
+PolicyLens AI simplifies government schemes &
+detects fund leakage
+Solves real issues: low awareness, inefficiency, lack
+of transparency
+Benefits both citizens (access) and government
+(monitoring)
+Low-cost, scalable, and practical solution
+Supports SDG 1, 10, 16
+Expand to all schemes & states
+Add real-time data integration
+Improve AI predictions
+Multi-language support
+Mobile app & government integration
+Despite saving ₹3.48 lakh crore through DBT, India still
+faces 4–7% leakage and low awareness across 1000+
+schemes — showing the urgent need for an AI-driven
+solution like PolicyLens
+REFERENCE
+NitiVerse
+Press Information Bureau, Govt. of India, “Direct Benefit Transfer (DBT) has led to cumulative
+savings of ₹3.48 lakh crore,” 2024. [Online]. Available:
+https://www.pib.gov.in/PressReleasePage.aspx?PRID=2123192
+ NITI Aayog, “India Voluntary National Review 2023,” Govt. of India, 2023. [Online]. Available:
+https://niti.gov.in/sites/default/files/2023-07/India-VNR-2023.pdf
+BlueKraft Digital Foundation, “A Quantitative Assessment of India’s Direct Benefit Transfer
+System,” 2025. [Online]. Available: 
+       https://www.bluekraft.in/a-quantitative-assessment-of-indias-dbt-system/
+ Ministry of Finance, Govt. of India, “Economic Survey 2022–23,” 2023. [Online]. Available:
+https://www.indiabudget.gov.in/economicsurvey/
+THANK YOU

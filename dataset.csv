@@ -1,0 +1,106 @@
+beneficiary_id,name,district,scheme,amount,date,status,confidence,reasons
+BEN001,Ramesh Kumar,Lucknow,PM Kisan,6000,2025-01-15,normal,,[]
+BEN002,Sunita Devi,Lucknow,MGNREGA,4500,2025-01-18,normal,,[]
+BEN003,Anil Sharma,Lucknow,PM Ujjwala,1600,2025-02-01,anomaly,92,"['Duplicate ID found in Kanpur', 'Multiple schemes overlap']"
+BEN004,Priya Singh,Lucknow,PM Kisan,6000,2025-02-05,normal,,[]
+BEN005,Vikram Yadav,Lucknow,Ayushman Bharat,25000,2025-02-10,anomaly,87,"['Unusual transaction amount', 'Amount exceeds scheme limit by 150%']"
+BEN006,Meena Gupta,Lucknow,MGNREGA,5200,2025-02-12,normal,,[]
+BEN007,Rajesh Tiwari,Lucknow,PM Kisan,12000,2025-02-20,anomaly,95,"['Amount is 2x the scheme limit', 'Duplicate ID found in Agra']"
+BEN008,Kavita Verma,Lucknow,Sukanya Samriddhi,5000,2025-03-01,normal,,[]
+BEN009,Deepak Mishra,Kanpur,PM Kisan,6000,2025-01-10,normal,,[]
+BEN010,Sita Ram,Kanpur,MGNREGA,4800,2025-01-14,normal,,[]
+BEN011,Mohit Pandey,Kanpur,PM Ujjwala,1600,2025-01-22,normal,,[]
+BEN012,Asha Kumari,Kanpur,PM Kisan,18000,2025-02-02,anomaly,96,"['Amount is 3x the scheme limit', 'Multiple schemes overlap', 'Suspicious transaction pattern']"
+BEN013,Suresh Chauhan,Kanpur,Ayushman Bharat,15000,2025-02-08,normal,,[]
+BEN014,Geeta Devi,Kanpur,MGNREGA,4200,2025-02-15,normal,,[]
+BEN015,Arvind Kumar,Kanpur,PM Kisan,6000,2025-02-28,anomaly,78,['Duplicate ID found in Varanasi']
+BEN016,Pooja Agarwal,Kanpur,Sukanya Samriddhi,8000,2025-03-05,normal,,[]
+BEN017,Manoj Singh,Moradabad,PM Kisan,6000,2025-01-05,normal,,[]
+BEN018,Rekha Sharma,Moradabad,MGNREGA,9500,2025-01-12,anomaly,91,"['Unusual transaction amount', 'Amount exceeds scheme limit by 200%']"
+BEN019,Vijay Pratap,Moradabad,PM Ujjwala,1600,2025-01-20,normal,,[]
+BEN020,Anita Devi,Moradabad,PM Kisan,6000,2025-01-25,anomaly,85,"['Multiple schemes overlap', 'Duplicate ID found in Bareilly']"
+BEN021,Pankaj Gupta,Moradabad,Ayushman Bharat,32000,2025-02-01,anomaly,97,"['Unusual transaction amount', 'Amount exceeds scheme limit by 220%', 'Suspicious transaction pattern']"
+BEN022,Savitri Kumari,Moradabad,MGNREGA,4600,2025-02-10,normal,,[]
+BEN023,Ravi Shankar,Moradabad,PM Kisan,12000,2025-02-18,anomaly,89,"['Amount is 2x the scheme limit', 'Duplicate ID']"
+BEN024,Kamla Devi,Moradabad,PM Ujjwala,3200,2025-02-25,anomaly,82,['Amount is 2x the scheme limit']
+BEN025,Santosh Kumar,Moradabad,Sukanya Samriddhi,5000,2025-03-02,normal,,[]
+BEN026,Dinesh Verma,Agra,PM Kisan,6000,2025-01-08,normal,,[]
+BEN027,Lalita Devi,Agra,MGNREGA,4400,2025-01-15,normal,,[]
+BEN028,Ashok Pal,Agra,PM Ujjwala,1600,2025-01-22,normal,,[]
+BEN029,Neha Agarwal,Agra,PM Kisan,6000,2025-02-01,anomaly,76,['Multiple schemes overlap']
+BEN030,Bharat Singh,Agra,Ayushman Bharat,28000,2025-02-08,anomaly,93,"['Unusual transaction amount', 'Amount exceeds scheme limit by 180%', 'Suspicious transaction pattern']"
+BEN031,Usha Rani,Agra,MGNREGA,4900,2025-02-15,normal,,[]
+BEN032,Govind Prasad,Agra,PM Kisan,6000,2025-02-22,normal,,[]
+BEN033,Shanti Devi,Agra,Sukanya Samriddhi,6000,2025-03-01,normal,,[]
+BEN034,Prakash Chandra,Varanasi,PM Kisan,6000,2025-01-12,normal,,[]
+BEN035,Pushpa Devi,Varanasi,MGNREGA,4700,2025-01-18,normal,,[]
+BEN036,Sunil Kumar,Varanasi,PM Ujjwala,1600,2025-01-25,normal,,[]
+BEN037,Radha Kumari,Varanasi,PM Kisan,6000,2025-02-02,anomaly,81,"['Duplicate ID found in Lucknow', 'Multiple schemes overlap']"
+BEN038,Umesh Yadav,Varanasi,Ayushman Bharat,14000,2025-02-10,normal,,[]
+BEN039,Kiran Bala,Varanasi,MGNREGA,7800,2025-02-18,anomaly,84,"['Unusual transaction amount', 'Amount exceeds scheme limit by 170%']"
+BEN040,Narendra Tiwari,Varanasi,PM Kisan,6000,2025-02-25,normal,,[]
+BEN041,Shakuntala Mishra,Varanasi,Sukanya Samriddhi,4000,2025-03-04,normal,,[]
+BEN042,Harish Chandra,Bareilly,PM Kisan,6000,2025-01-06,normal,,[]
+BEN043,Sarita Devi,Bareilly,MGNREGA,4300,2025-01-14,normal,,[]
+BEN044,Rakesh Mishra,Bareilly,PM Ujjwala,1600,2025-01-20,anomaly,74,['Duplicate ID found in Moradabad']
+BEN045,Jyoti Pandey,Bareilly,PM Kisan,6000,2025-01-28,normal,,[]
+BEN046,Amar Nath,Bareilly,Ayushman Bharat,22000,2025-02-05,anomaly,88,"['Unusual transaction amount', 'Amount exceeds scheme limit by 120%']"
+BEN047,Parvati Kumari,Bareilly,MGNREGA,5100,2025-02-12,normal,,[]
+BEN048,Vinod Sharma,Bareilly,PM Kisan,6000,2025-02-20,normal,,[]
+BEN049,Laxmi Devi,Bareilly,Sukanya Samriddhi,7000,2025-03-01,normal,,[]
+BEN050,Chandan Singh,Meerut,PM Kisan,6000,2025-01-09,normal,,[]
+BEN051,Saroj Devi,Meerut,MGNREGA,4650,2025-01-16,normal,,[]
+BEN052,Devendra Pratap,Meerut,PM Ujjwala,1600,2025-01-23,normal,,[]
+BEN053,Nirmala Gupta,Meerut,PM Kisan,15000,2025-02-01,anomaly,90,"['Amount is 2.5x the scheme limit', 'Suspicious transaction pattern']"
+BEN054,Yogesh Kumar,Meerut,Ayushman Bharat,12000,2025-02-08,normal,,[]
+BEN055,Rani Devi,Meerut,MGNREGA,4400,2025-02-15,normal,,[]
+BEN056,Satish Chandra,Meerut,PM Kisan,6000,2025-02-22,anomaly,77,"['Duplicate ID found in Agra', 'Multiple schemes overlap']"
+BEN057,Kusum Lata,Meerut,Sukanya Samriddhi,5000,2025-03-02,normal,,[]
+BEN058,Balram Yadav,Allahabad,PM Kisan,6000,2025-01-11,normal,,[]
+BEN059,Sunanda Devi,Allahabad,MGNREGA,4500,2025-01-19,normal,,[]
+BEN060,Mahesh Prasad,Allahabad,PM Ujjwala,1600,2025-01-26,normal,,[]
+BEN061,Renu Gupta,Allahabad,PM Kisan,6000,2025-02-03,anomaly,83,"['Multiple schemes overlap', 'Duplicate ID']"
+BEN062,Sanjay Verma,Allahabad,Ayushman Bharat,30000,2025-02-10,anomaly,94,"['Unusual transaction amount', 'Amount exceeds scheme limit by 200%', 'Suspicious transaction pattern']"
+BEN063,Malti Devi,Allahabad,MGNREGA,4800,2025-02-17,normal,,[]
+BEN064,Raghunath Singh,Allahabad,PM Kisan,6000,2025-02-24,normal,,[]
+BEN065,Sudha Rani,Allahabad,Sukanya Samriddhi,4500,2025-03-03,normal,,[]
+BEN066,Pappu Yadav,Gorakhpur,PM Kisan,6000,2025-01-07,normal,,[]
+BEN067,Kaushalya Devi,Gorakhpur,MGNREGA,4100,2025-01-15,normal,,[]
+BEN068,Shyam Sundar,Gorakhpur,PM Ujjwala,1600,2025-01-22,normal,,[]
+BEN069,Mamta Kumari,Gorakhpur,PM Kisan,6000,2025-01-30,anomaly,79,['Duplicate ID found in Bareilly']
+BEN070,Tej Bahadur,Gorakhpur,Ayushman Bharat,18000,2025-02-06,normal,,[]
+BEN071,Prem Lata,Gorakhpur,MGNREGA,8200,2025-02-14,anomaly,86,"['Unusual transaction amount', 'Amount exceeds scheme limit by 180%']"
+BEN072,Jitendra Singh,Gorakhpur,PM Kisan,6000,2025-02-21,normal,,[]
+BEN073,Sangeeta Mishra,Gorakhpur,Sukanya Samriddhi,6000,2025-03-01,normal,,[]
+BEN074,Ajay Dubey,Aligarh,PM Kisan,6000,2025-01-13,normal,,[]
+BEN075,Savita Sharma,Aligarh,MGNREGA,4500,2025-01-20,normal,,[]
+BEN076,Mukesh Agarwal,Aligarh,PM Ujjwala,4800,2025-01-27,anomaly,88,"['Amount is 3x the scheme limit', 'Suspicious transaction pattern']"
+BEN077,Durga Devi,Aligarh,PM Kisan,6000,2025-02-04,normal,,[]
+BEN078,Rakesh Kumar,Aligarh,Ayushman Bharat,14000,2025-02-11,normal,,[]
+BEN079,Pushpa Rani,Aligarh,MGNREGA,4300,2025-02-18,normal,,[]
+BEN080,Shiv Kumar,Aligarh,PM Kisan,6000,2025-02-25,anomaly,75,['Multiple schemes overlap']
+BEN081,Nisha Kumari,Aligarh,Sukanya Samriddhi,5500,2025-03-04,normal,,[]
+BEN082,Om Prakash,Lucknow,MGNREGA,7500,2025-03-06,anomaly,83,"['Unusual transaction amount', 'Amount exceeds scheme limit by 160%']"
+BEN083,Suman Lata,Kanpur,PM Kisan,6000,2025-03-07,normal,,[]
+BEN084,Indra Dev,Moradabad,MGNREGA,4400,2025-03-08,normal,,[]
+BEN085,Shobha Devi,Agra,PM Ujjwala,1600,2025-03-09,normal,,[]
+BEN086,Brij Mohan,Varanasi,PM Kisan,6000,2025-03-10,normal,,[]
+BEN087,Poonam Yadav,Bareilly,MGNREGA,4600,2025-03-11,normal,,[]
+BEN088,Raju Prasad,Meerut,PM Kisan,6000,2025-03-12,normal,,[]
+BEN089,Kamini Devi,Allahabad,PM Ujjwala,1600,2025-03-13,normal,,[]
+BEN090,Hari Om,Gorakhpur,Ayushman Bharat,10000,2025-03-14,normal,,[]
+BEN091,Anju Gupta,Aligarh,MGNREGA,4700,2025-03-15,normal,,[]
+BEN092,Trilok Chand,Lucknow,Ayushman Bharat,11000,2025-03-16,normal,,[]
+BEN093,Vidya Devi,Kanpur,PM Ujjwala,1600,2025-03-17,normal,,[]
+BEN094,Phool Chand,Moradabad,Ayushman Bharat,15000,2025-03-18,normal,,[]
+BEN095,Basanti Devi,Agra,MGNREGA,4200,2025-03-19,normal,,[]
+BEN096,Jagdish Prasad,Varanasi,PM Kisan,6000,2025-03-20,normal,,[]
+BEN097,Rita Singh,Bareilly,PM Ujjwala,1600,2025-03-21,normal,,[]
+BEN098,Kailash Nath,Meerut,MGNREGA,10500,2025-03-22,anomaly,91,"['Unusual transaction amount', 'Amount exceeds scheme limit by 230%', 'Suspicious transaction pattern']"
+BEN099,Gauri Shankar,Allahabad,PM Kisan,6000,2025-03-23,normal,,[]
+BEN100,Dropadi Devi,Gorakhpur,PM Kisan,6000,2025-03-24,normal,,[]
+BEN101,Mohan Lal,Lucknow,PM Kisan,6000,2025-03-25,normal,,[]
+BEN102,Anwar Hussain,Moradabad,PM Kisan,18000,2025-03-26,anomaly,94,"['Amount is 3x the scheme limit', 'Duplicate ID', 'Suspicious transaction pattern']"
+BEN103,Krishna Murari,Kanpur,MGNREGA,4800,2025-03-27,normal,,[]
+BEN104,Seema Rani,Agra,PM Kisan,6000,2025-03-28,normal,,[]
+BEN105,Chhotu Ram,Varanasi,MGNREGA,4500,2025-03-29,normal,,[]

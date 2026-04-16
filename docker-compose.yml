@@ -1,0 +1,57 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: policylens_db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-policylens}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password123}
+      POSTGRES_DB: ${POSTGRES_DB:-policylens_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+  backend:
+    build:
+      context: ./backend
+    container_name: policylens_backend
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-policylens}:${POSTGRES_PASSWORD:-password123}@db:5432/${POSTGRES_DB:-policylens_db}
+      REDIS_URL: redis://redis:6379/0
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:-super-secret-jwt-key!123}
+      CORS_ORIGINS: "*"
+      # Email Configuration (Update with real credentials)
+      MAIL_SERVER: smtp.gmail.com
+      MAIL_PORT: 587
+      MAIL_USE_TLS: "True"
+      MAIL_USERNAME: ${MAIL_USERNAME:-your-email@gmail.com}
+      MAIL_PASSWORD: ${MAIL_PASSWORD:-your-app-password}
+      MAIL_DEFAULT_SENDER: ${MAIL_DEFAULT_SENDER:-noreply@policylens.ai}
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    restart: always
+
+  frontend:
+    build:
+      context: ./pro-main/frontend
+    container_name: policylens_frontend
+    ports:
+      - "5174:80"
+    depends_on:
+      - backend
+    restart: always
+
+  redis:
+    image: redis:alpine
+    container_name: policylens_redis
+    ports:
+      - "6379:6379"
+    restart: always
+
+volumes:
+  postgres_data:
