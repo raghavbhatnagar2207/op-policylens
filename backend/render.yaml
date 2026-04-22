@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: policylens-backend
+    runtime: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python -m textblob.download_corpora
+    startCommand: gunicorn --bind 0.0.0.0:$PORT "app:create_app()"
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: "*"
+      - key: PYTHON_VERSION
+        value: "3.11.0"
