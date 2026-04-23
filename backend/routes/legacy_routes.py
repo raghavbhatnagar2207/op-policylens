@@ -9,10 +9,25 @@ legacy_bp = Blueprint("legacy", __name__)
 # Fallback to the dataset.csv in root, or an empty JSON structure if not available.
 DATASET_PATH = os.path.join(os.path.dirname(__file__), "..", "..", "dataset.csv")
 
+import csv
+
 def load_dataset():
+    data = []
     try:
-        with open(DATASET_PATH, "r") as f:
-            return json.load(f)
+        with open(DATASET_PATH, "r", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                # Convert amount and confidence to numeric where possible
+                try:
+                    row["amount"] = float(row["amount"]) if row["amount"] else 0
+                except:
+                    row["amount"] = 0
+                try:
+                    row["confidence"] = float(row["confidence"]) if row["confidence"] else 0
+                except:
+                    row["confidence"] = 0
+                data.append(row)
+        return data
     except Exception as e:
         print(f"Error loading {DATASET_PATH}: {e}")
         return []

@@ -579,7 +579,7 @@ Return the JSON array of matching schemes."""
             try:
                 response = model.generate_content(
                     [SYSTEM_PROMPT, user_prompt],
-                    request_options={"timeout": 30}
+                    request_options={"timeout": 5}
                 )
                 raw_text = response.text.strip()
                 # Clean up markdown code fences
