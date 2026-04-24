@@ -2,6 +2,7 @@ services:
   - type: web
     name: policylens-backend
     runtime: python
+    rootDir: backend
     buildCommand: |
       pip install -r requirements.txt
       python -m textblob.download_corpora
