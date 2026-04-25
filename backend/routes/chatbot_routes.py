@@ -180,15 +180,18 @@ def chat():
 
     # ── RESILIENT MODEL CALL LOOP (Multi-Key + Multi-Model Rotation) ──
     available_keys = get_all_keys()
-    if not available_keys:
-        return jsonify({"error": "No API keys configured"}), 503
 
     # Available models — each has its OWN separate quota bucket
     models_to_try = ["gemini-2.0-flash-lite", "gemini-2.0-flash", "gemini-2.5-flash"]
     reply = None
     success_model = None
     
+    if not available_keys:
+        logger.warning("[CHAT] No API keys configured — skipping AI, using fallback.")
+    
     for model_name in models_to_try:
+        if not available_keys:
+            break
         if reply: break
         
         for key in available_keys:
@@ -223,27 +226,46 @@ def chat():
                     continue
 
     if not reply:
-        # ── Ultimate Fallback: Friendly "Busy" message in all 10 languages ──
+        # ── Smart Fallback: Helpful information without AI ──
         fallbacks = {
-            "en": "Hello! I am feeling a bit busy right now. Please try again in a minute.",
-            "hi": "नमस्ते! अभी मुझे अधिक अनुरोध मिल रहे हैं। कृपया एक मिनट बाद फिर से प्रयास करें।",
-            "bn": "நমস্কার! અત્યારે সার্ভার ব্যস্ত છે. ದయచేసి ఒక નિમિഷం తర్వాత મళ్లీ ప్రयत్నించండి। (Hello! I am busy right now.)", # Needs proper translation
-            "te": "నమస్కారం! ప్రస్తుతం సర్వర్ బిజీగా ఉంది. దయచేసి ఒక నిమిషం తర్వాత మళ్ళీ ప్రయత్నించండి.",
-            "mr": "नमस्कार! सध्या सर्व्हर बिझी आहे. कृपया एका मिनिटानंतर पुन्हा प्रयत्न करा.",
-            "ta": "வணக்கம்! தற்போது சர்வர் பிஸியாக உள்ளது. ஒரு நிமிடம் கழித்து மீண்டும் முயற்சிக்கவும்.",
-            "gu": "નમસ્તે! અત્યારે સર્વર વ્યસ્ત છે. કૃપા કરીને એક મિનિટ પછી ફરી પ્રયાસ કરો.",
-            "kn": "ನಮಸ್ಕಾರ! ಪ್ರಸ್ತುತ ಸರ್ವರ್ ಕಾರ್ಯನಿರತವಾಗಿದೆ. ದಯವಿಟ್ಟು ಒಂದು ನಿಮಿಷದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
-            "ml": "നമസ്കാരം! നിലവിൽ സെർവർ തിരക്കിലാണ്. ഒരു മിനിറ്റിനുശേഷം വീണ്ടും ശ്രമിക്കുക.",
-            "pa": "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ! ਸਰਵਰ ਵਰਤਮਾਨ ਵਿੱਚ ਵਿਅਸਤ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਮਿੰਟ ਬਾਅਦ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+            "en": "Namaste! I am PolicyLens AI Assistant. I can help you with Indian government welfare schemes. "
+                  "Here are some popular schemes you can explore: "
+                  "1. PM-KISAN: Rs 6000 per year for farmers. "
+                  "2. Ayushman Bharat: Rs 5 Lakh health cover for families. "
+                  "3. PM Awas Yojana: Housing support for rural and urban poor. "
+                  "4. MGNREGA: 100 days guaranteed employment. "
+                  "5. PM Ujjwala Yojana: Free LPG connection for women. "
+                  "Use the Scheme Matcher feature on the left menu to find schemes that match your profile!",
+            "hi": "नमस्ते! मैं PolicyLens AI सहायक हूँ। मैं आपको भारत सरकार की कल्याणकारी योजनाओं के बारे में मदद कर सकता हूँ। "
+                  "यहाँ कुछ लोकप्रिय योजनाएँ हैं: "
+                  "1. पीएम-किसान: किसानों को प्रति वर्ष 6000 रुपये। "
+                  "2. आयुष्मान भारत: परिवारों के लिए 5 लाख रुपये का स्वास्थ्य कवर। "
+                  "3. पीएम आवास योजना: ग्रामीण और शहरी गरीबों के लिए आवास सहायता। "
+                  "4. मनरेगा: 100 दिन की गारंटीशुदा रोजगार। "
+                  "स्कीम मैचर का उपयोग करके अपनी प्रोफ़ाइल से मेल खाने वाली योजनाएँ खोजें!",
+            "bn": "নমস্কার! আমি PolicyLens AI সহকারী। আমি আপনাকে ভারত সরকারের কল্যাণমূলক প্রকল্পগুলি সম্পর্কে সাহায্য করতে পারি। "
+                  "স্কিম ম্যাচার ব্যবহার করে আপনার প্রোফাইলের সাথে মেলে এমন প্রকল্পগুলি খুঁজুন!",
+            "te": "నమస్కారం! నేను PolicyLens AI అసిస్టెంట్. భారత ప్రభుత్వ సంక్షేమ పథకాల గురించి మీకు సహాయం చేయగలను। "
+                  "స్కీమ్ మ్యాచర్ ఉపయోగించి మీ ప్రొఫైల్‌కు సరిపోయే పథకాలను కనుగొనండి!",
+            "mr": "नमस्कार! मी PolicyLens AI सहाय्यक आहे. भारत सरकारच्या कल्याणकारी योजनांबद्दल मी तुम्हाला मदत करू शकतो। "
+                  "स्कीम मॅचर वापरून तुमच्या प्रोफाइलशी जुळणाऱ्या योजना शोधा!",
+            "ta": "வணக்கம்! நான் PolicyLens AI உதவியாளர். இந்திய அரசின் நலத்திட்டங்கள் பற்றி உங்களுக்கு உதவ முடியும். "
+                  "ஸ்கீம் மேட்சர் பயன்படுத்தி உங்கள் சுயவிவரத்துடன் பொருந்தும் திட்டங்களைக் கண்டறியுங்கள்!",
+            "gu": "નમસ્તે! હું PolicyLens AI સહાયક છું. ભારત સરકારની કલ્યાણકારી યોજનાઓ વિશે હું તમને મદદ કરી શકું છું। "
+                  "સ્કીમ મેચર વાપરીને તમારી પ્રોફાઇલ સાથે મેળ ખાતી યોજનાઓ શોધો!",
+            "kn": "ನಮಸ್ಕಾರ! ನಾನು PolicyLens AI ಸಹಾಯಕ. ಭಾರತ ಸರ್ಕಾರದ ಕಲ್ಯಾಣ ಯೋಜನೆಗಳ ಬಗ್ಗೆ ನಿಮಗೆ ಸಹಾಯ ಮಾಡಬಲ್ಲೆ. "
+                  "ಸ್ಕೀಮ್ ಮ್ಯಾಚರ್ ಬಳಸಿ ನಿಮ್ಮ ಪ್ರೊಫೈಲ್‌ಗೆ ಹೊಂದಿಕೆಯಾಗುವ ಯೋಜನೆಗಳನ್ನು ಹುಡುಕಿ!",
+            "ml": "നമസ്കാരം! ഞാൻ PolicyLens AI അസിസ്റ്റന്റ് ആണ്. ഇന്ത്യൻ സർക്കാർ ക്ഷേമ പദ്ധതികളെക്കുറിച്ച് നിങ്ങളെ സഹായിക്കാൻ എനിക്ക് കഴിയും. "
+                  "സ്കീം മാച്ചർ ഉപയോഗിച്ച് നിങ്ങളുടെ പ്രൊഫൈലുമായി പൊരുത്തപ്പെടുന്ന പദ്ധതികൾ കണ്ടെത്തുക!",
+            "pa": "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ! ਮੈਂ PolicyLens AI ਸਹਾਇਕ ਹਾਂ। ਭਾਰਤ ਸਰਕਾਰ ਦੀਆਂ ਭਲਾਈ ਯੋਜਨਾਵਾਂ ਬਾਰੇ ਮੈਂ ਤੁਹਾਡੀ ਮਦਦ ਕਰ ਸਕਦਾ ਹਾਂ। "
+                  "ਸਕੀਮ ਮੈਚਰ ਵਰਤ ਕੇ ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਨਾਲ ਮੇਲ ਖਾਂਦੀਆਂ ਯੋਜਨਾਵਾਂ ਲੱਭੋ!"
         }
-        # Corrected Bengali Translation
-        fallbacks["bn"] = "নমস্কার! বর্তমানে সার্ভার ব্যস্ত আছে। অনুগ্রহ করে এক মিনিট পর আবার চেষ্টা করুন।"
         
         return jsonify({
             "reply": fallbacks.get(detected_lang, fallbacks["en"]),
             "language": detected_lang,
             "bcp47": bcp47,
-            "is_fallback": True
+            "source": "offline-assistant"
         }), 200
 
     return jsonify({
