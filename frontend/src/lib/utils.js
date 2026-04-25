@@ -5,7 +5,7 @@ export function cn(...inputs) {
   return twMerge(clsx(inputs));
 }
 
-export const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5000';
+export const API_BASE = import.meta.env.VITE_API_BASE || 'https://policylens-backend-wrgj.onrender.com';
 
 export async function fetchAPI(endpoint, options = {}) {
   const token = localStorage.getItem('token');
