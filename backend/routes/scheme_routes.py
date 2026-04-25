@@ -559,48 +559,47 @@ Return the JSON array of matching schemes."""
 
     # ── RESILIENT MODEL CALL LOOP (Multi-Key + Multi-Model Rotation) ──
     available_keys = get_all_keys()
-    if not available_keys:
-        return jsonify({"error": "No API keys configured"}), 503
-
+    
     models_to_try = ["gemini-2.0-flash-lite", "gemini-2.0-flash", "gemini-2.5-flash"]
     raw_text = None
     success_model = None
     
-    for model_name in models_to_try:
-        if raw_text: break
-        
-        for key in available_keys:
+    if available_keys:
+        for model_name in models_to_try:
             if raw_text: break
             
-            logger.info(f"[SCHEMES] Trying {model_name} with key {key[:8]}...")
-            model = _get_gemini_model(model_name, api_key=key)
-            if not model: continue
-            
-            try:
-                response = model.generate_content(
-                    [SYSTEM_PROMPT, user_prompt],
-                    request_options={"timeout": 5}
-                )
-                raw_text = response.text.strip()
-                # Clean up markdown code fences
-                if raw_text.startswith("```"):
-                    lines = raw_text.split("\n")
-                    lines = [l for l in lines if not l.strip().startswith("```")]
-                    raw_text = "\n".join(lines)
+            for key in available_keys:
+                if raw_text: break
                 
-                success_model = model_name
-                logger.info(f"[SCHEMES] Success with {model_name} using key {key[:8]}")
-                break
-            except Exception as e:
-                err_msg = str(e)
-                if "429" in err_msg or "RESOURCE_EXHAUSTED" in err_msg:
-                    logger.warning(f"[SCHEMES] Key {key[:8]} rate limited on {model_name}. Trying next...")
-                    import time
-                    time.sleep(1)
-                    continue
-                else:
-                    logger.error(f"[SCHEMES] Error with {model_name}: {err_msg[:100]}")
+                logger.info(f"[SCHEMES] Trying {model_name} with key {key[:8]}...")
+                model = _get_gemini_model(model_name, api_key=key)
+                if not model: continue
+                
+                try:
+                    response = model.generate_content(
+                        [SYSTEM_PROMPT, user_prompt],
+                        request_options={"timeout": 5}
+                    )
+                    raw_text = response.text.strip()
+                    # Clean up markdown code fences
+                    if raw_text.startswith("```"):
+                        lines = raw_text.split("\n")
+                        lines = [l for l in lines if not l.strip().startswith("```")]
+                        raw_text = "\n".join(lines)
+                    
+                    success_model = model_name
+                    logger.info(f"[SCHEMES] Success with {model_name} using key {key[:8]}")
                     break
+                except Exception as e:
+                    err_msg = str(e)
+                    if "429" in err_msg or "RESOURCE_EXHAUSTED" in err_msg:
+                        logger.warning(f"[SCHEMES] Key {key[:8]} rate limited on {model_name}. Trying next...")
+                        import time
+                        time.sleep(1)
+                        continue
+                    else:
+                        logger.error(f"[SCHEMES] Error with {model_name}: {err_msg[:100]}")
+                        break
 
     if not raw_text:
         # ── Comprehensive Rule-Based Fallback ──
