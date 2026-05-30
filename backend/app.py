@@ -168,26 +168,30 @@ def ensure_models():
     """Train ML models if the pickle file doesn't exist yet."""
     model_path = os.path.join(os.path.dirname(__file__), "ml", "model.pkl")
     if not os.path.exists(model_path):
-        logger.info("model.pkl not found — bypassing training because scikit-learn is unsupported in this env")
-        pass
+        try:
+            from ml.train_model import train_models
+            logger.info("model.pkl not found — training models…")
+            train_models()
+        except Exception as e:
+            logger.warning("Could not train models: %s", e)
     else:
         logger.info("model.pkl found — skipping training")
 
 
 # ---------------------------------------------------------------------------
-# Main
+# Main — works for both `python app.py` and `gunicorn app:app`
 # ---------------------------------------------------------------------------
 app = create_app()
 
+with app.app_context():
+    from models import db
+    db.create_all()
+    logger.info("Database tables created")
+    seed_database()
+
+ensure_models()
+
 if __name__ == "__main__":
-    with app.app_context():
-        from models import db
-        db.create_all()
-        logger.info("Database tables created")
-
-        seed_database()
-
-    ensure_models()
-
     logger.info("Starting PolicyLens AI backend on http://localhost:5000")
     app.run(host="0.0.0.0", port=5000, debug=True)
+
