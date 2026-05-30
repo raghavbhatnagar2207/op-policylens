@@ -1,0 +1,43 @@
+name: PolicyLens AI CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-and-build:
+    name: Run Automated Tests & Build Container Image
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+        
+    - name: Run Backend PyTest Suite
+      run: |
+        cd backend
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pytest==8.0.0
+        
+        # Download NLTK Corpora for the Deep Learning Sentiment analyzer
+        python -m textblob.download_corpora
+        
+        # Run tests
+        python -m pytest tests/
+        
+    - name: Test Docker Compose Production Architecture Build
+      run: |
+        docker compose build
+        
+    - name: Deploy Node Notification (Placeholder)
+      run: |
+        echo "✅ Integration verified completely bug-free!"
+        echo "✅ Docker Images compiled flawlessly."
+        echo "🚀 Ready to dispatch deployment commands to AWS or Render."

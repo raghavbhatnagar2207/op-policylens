@@ -1,0 +1,15 @@
+# Python Backend
+backend/venv/
+backend/venv_new/
+__pycache__/
+*.pyc
+backend/database.db
+backend/instance/
+backend/ml/model.pkl
+.env
+.pytest_cache/
+
+# Node Frontend
+node_modules/
+dist/
+.DS_Store

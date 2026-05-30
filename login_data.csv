@@ -1,0 +1,6 @@
+id,name,email,password,role,created_at
+1,Rahul Sharma,citizen@example.com,$2b$12$9tLgFe5.3DHroCZMst7A3egb4J6RDpvV60avq/DSluNf5tlRNrAAi,Citizen,2026-03-27 13:30:36.140239
+2,Priya Singh,authority@example.com,$2b$12$10PBzLOeMFM.MJHlAO1CPONFnaDS601T1IL8/SyZMx6MwY7viXcuW,Authority,2026-03-27 13:30:36.140239
+3,Amit Kumar,citizen2@example.com,$2b$12$xA.WPcwr14Bx0CZsmVL/VudTmHVxoOC0insK0Lc8R3zzbSILiTgF2,Citizen,2026-03-27 13:30:36.140239
+4,Test User,test@test.com,$2b$12$mzDSbOI5VH6WcSIukQjFMOx2MDUwMM8jw6mJEMP2I5nEUG8MBEl2i,Citizen,2026-03-27 13:33:19.752648
+5,RAGHAV,raghav@gmai.com,$2b$12$FaEdiY/TVipuLXGuDFmJg.cI7mGzeNz4kuPmOjxyLOw8APFMwhfcW,Citizen,2026-03-27 14:12:12.275203
