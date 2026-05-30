@@ -6,7 +6,7 @@ export function cn(...inputs) {
 }
 
 export const API_BASE = import.meta.env.PROD
-  ? 'https://policylens-backend-wrqj.onrender.com'
+  ? 'https://policylens-backend-wrgj.onrender.com'
   : 'http://localhost:5000';
 
 export async function fetchAPI(endpoint, options = {}) {
